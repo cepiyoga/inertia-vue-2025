@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class HalamanUtamaController extends Controller
@@ -10,11 +11,7 @@ class HalamanUtamaController extends Controller
     {
         $data = [
             'JudulHalaman' => 'Halaman Utama',
-            'Mhs' => [
-                ['Nama' => 'Cepii Yoga', 'NIM' => '10'],
-                ['Nama' => 'Ratih', 'NIM' => '11'],
-                ['Nama' => 'Naufal', 'NIM' => '12'],
-            ]
+            'Mhs' => DB::table('Mhs')->get()
         ];
         return Inertia::render('Welcome', ['data' => $data]);
     }
