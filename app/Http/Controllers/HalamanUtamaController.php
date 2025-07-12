@@ -15,4 +15,9 @@ class HalamanUtamaController extends Controller
         ];
         return Inertia::render('Welcome', ['data' => $data]);
     }
+
+    public function about()
+    {
+        return Inertia::render('About');
+    }
 }
